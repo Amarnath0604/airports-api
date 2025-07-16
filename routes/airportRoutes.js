@@ -4,18 +4,13 @@ const Airport = require("../models/Airport");
 
 // GET /api/airports?country=India&state=Kerala
 router.get("/", async (req, res) => {
-  const { country, state } = req.query;
+  const { country } = req.query;
 
   try {
     const query = {};
 
-    // Case-insensitive country and state match
     if (country) {
       query.country = new RegExp(`^${country}$`, "i");
-    }
-
-    if (state) {
-      query.state = new RegExp(`^${state}$`, "i");
     }
 
     const airports = await Airport.find(query);

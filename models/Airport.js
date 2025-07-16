@@ -12,4 +12,6 @@ const airportSchema = new mongoose.Schema({
   timezone: String,
 });
 
+airportSchema.index({ country: 1, state: 1 });
+
 module.exports = mongoose.model("Airport", airportSchema);
