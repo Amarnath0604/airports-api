@@ -5,13 +5,12 @@ const airportSchema = new mongoose.Schema({
   code: String,
   icao: String,
   city: String,
-  state: String,
   country: String,
   latitude: Number,
   longitude: Number,
   timezone: String,
 });
 
-airportSchema.index({ country: 1, state: 1 });
+airportSchema.index({ country: 1 });
 
 module.exports = mongoose.model("Airport", airportSchema);
